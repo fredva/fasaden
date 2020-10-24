@@ -1,0 +1,74 @@
+body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.textContainer {
+    order: 0;
+}
+
+#time {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.playerContainer {
+    height: 100%;
+    position: relative;
+}
+
+#player {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+body.bottom #textContainer {
+    order: 1
+}
+
+body.mid .playerContainer {
+    display: none;
+}
+
+body.mid #textContainer {
+    height: 100%;
+}
+
+.word {
+    position: relative;
+    white-space: nowrap;
+    color: lightblue;
+    text-shadow: 0 0 3px rgba(0,0,0,1);
+}
+
+/* Karaoke styles */
+
+#textLine {
+    position: relative;
+    white-space: nowrap;
+}
+
+#textLine::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: red;
+    overflow: hidden;
+    width: 40%;
+    animation-timing-function: linear;
+    text-shadow: 0 0 3px rgba(255,255,255,1);
+    animation-fill-mode: forwards;
+    animation-name: run-text;
+    animation-duration: 2s;
+}
+
+@keyframes run-text {
+    from { width: 0 }
+    to { width: 100% }
+}
