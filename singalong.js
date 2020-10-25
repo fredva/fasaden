@@ -34,11 +34,16 @@ function onYouTubeIframeAPIReady() {
 
 function updateLine(next) {
     currentLine = next.text
-    const element = document.getElementById("textContainer")
-    element.innerHTML = next.text
-    element.dataset.text = next.text
+    const textLine = document.getElementById("text")
+    const progressLine = document.getElementById("progress")
+    textLine.innerHTML = next.text
+    progressLine.innerHTML = next.text
     var duration = next.end - next.start
-    element.setAttribute("style", "animation-duration: " + duration + "s;");
+
+    progressLine.setAttribute("style", "");
+    setTimeout(function() {
+        progressLine.setAttribute("style", "animation-duration: " + duration + "s; animation-name: run-text;");
+    }, 10)
 
 }
 
@@ -48,44 +53,27 @@ function update(time) {
     }
     var pastLines = lyrics.filter(function(l) {return l.start < time});
     var next = pastLines[pastLines.length - 1];
-    console.log(time, next)
+    console.log("next: ", time, next)
     if (currentLine != next.text) {
         updateLine(next)
     }
 }
 
-var p
-function onPlayerReady(event) {
-    window.playz = event.target
-    console.log("Player ready")
-    // console.log(event.target.playVideo)
-    // setTimeout(function() {
-    //     event.target.playVideo();
-    // }, 1000)
-    // setTimeout(function() {
-    // }, 10)
+function onPlayerReady(event) { }
 
-    function updateTime() {
-        // var oldTime = videotime;
-        if (player && player.getCurrentTime) {
-            update(player.getCurrentTime())
-        }
-        // clearInterval(timeupdater)
+function updateTime() {
+    if (player && player.getCurrentTime) {
+        update(player.getCurrentTime())
     }
-
-    // var timeupdater = setInterval(updateTime, 100);
-
-    setTimeout(() => {
-        clearInterval(timeupdater)
-    }, 10000)
 }
 
+var intervalId
 function onPlayerStateChange(event) {
-    console.log(event)
-    // if (event.data == YT.PlayerState.PLAYING && !done) {
-    //     setTimeout(stopVideo, 6000);
-    //     done = true;
-    // }
+    if (event.data == YT.PlayerState.PLAYING) {
+        intervalId = setInterval(updateTime, 100);
+    } else {
+        clearInterval(intervalId)
+    }
 }
 
 function stopVideo() {
@@ -95,7 +83,6 @@ function stopVideo() {
 
 
 function setTheme(i) {
-    // console.log(themes[i % 3])
     var themes = ["top", "bottom", "mid"]
     document.body.className = themes[i % 3]
 }

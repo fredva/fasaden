@@ -48,24 +48,22 @@ body.mid #textContainer {
 
 /* Karaoke styles */
 
-#textLine {
+#textContainer {
+    margin: 0 auto;
     position: relative;
     white-space: nowrap;
 }
 
-#textLine::after {
-    content: attr(data-text);
+#progress {
     position: absolute;
     left: 0;
     top: 0;
     color: red;
     overflow: hidden;
-    width: 40%;
+    width: 0;
     animation-timing-function: linear;
     text-shadow: 0 0 3px rgba(255,255,255,1);
     animation-fill-mode: forwards;
-    animation-name: run-text;
-    animation-duration: 2s;
 }
 
 @keyframes run-text {
