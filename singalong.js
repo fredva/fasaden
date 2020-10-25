@@ -5,7 +5,7 @@
 
 var player;
 var videotime = 0;
-var debug = true
+var debug = false
 var currentLine = ""
 var lyrics = fasaden
 
@@ -53,7 +53,7 @@ function update(time) {
     }
     var pastLines = lyrics.filter(function(l) {return l.start < time});
     var next = pastLines[pastLines.length - 1];
-    console.log("next: ", time, next)
+    debug && console.log("next: ", time, next)
     if (currentLine != next.text) {
         updateLine(next)
     }
@@ -94,9 +94,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 document.addEventListener("keydown", event => {
-    // console.log(event.code)
     if (event.code === "KeyT") {
         setTheme(++theme)
     }
-    // console.log(event)
+    if (event.code === "Space") {
+        console.log(player.getCurrentTime())
+    }
 })
