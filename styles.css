@@ -1,6 +1,8 @@
 body {
+    background: black;
     display: flex;
     flex-direction: column;
+    margin: 0;
     position: relative;
 }
 
@@ -15,15 +17,12 @@ body {
 }
 
 .playerContainer {
-    height: 100%;
+    height: calc(100% - 50px);
     position: relative;
 }
 
 #player {
     height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
     width: 100%;
 }
 
@@ -39,19 +38,18 @@ body.mid #textContainer {
     height: 100%;
 }
 
-.word {
-    position: relative;
-    white-space: nowrap;
-    color: lightblue;
-    text-shadow: 0 0 3px rgba(0,0,0,1);
-}
-
 /* Karaoke styles */
 
 #textContainer {
-    margin: 0 auto;
+    font-size: 24px;
+    margin: 11px auto;
     position: relative;
     white-space: nowrap;
+    text-transform: uppercase;
+}
+
+#text {
+    color: white;
 }
 
 #progress {
