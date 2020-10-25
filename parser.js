@@ -7,7 +7,7 @@ function toSeconds(timestamp) {
 }
 
 function parseLyrics(src) {
-    var lines = src.split("\n")
+    var lines = src//.split("\n")
     return lines.map(function(line) {
         var words = line.split(";")
         var start = toSeconds(words[0])

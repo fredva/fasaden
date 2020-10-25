@@ -44,12 +44,13 @@ body.mid #textContainer {
     font-size: 24px;
     margin: 11px auto;
     position: relative;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     text-transform: uppercase;
 }
 
 #text {
     color: white;
+    white-space: pre;
 }
 
 #progress {
@@ -58,6 +59,7 @@ body.mid #textContainer {
     top: 0;
     color: red;
     overflow: hidden;
+    white-space: pre;
     width: 0;
     animation-timing-function: linear;
     text-shadow: 0 0 3px rgba(255,255,255,1);
