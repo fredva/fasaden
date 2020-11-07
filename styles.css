@@ -1,73 +1,77 @@
 body {
-    background: black;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    position: relative;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  position: relative;
 }
 
 .textContainer {
-    order: 0;
+  order: 0;
 }
 
 #time {
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .playerContainer {
-    height: calc(100% - 239px);
-    position: relative;
+  height: calc(100% - 239px);
+  position: relative;
 }
 
 #player {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 body.bottom #textContainer {
-    order: 1
+  order: 1
 }
 
 body.mid .playerContainer {
-    display: none;
+  display: none;
 }
 
 body.mid #textContainer {
-    height: 100%;
+  height: 100%;
 }
 
 /* Karaoke styles */
 
 #textContainer {
-    font-family: sans-serif;
-    font-size: 34px;
-    letter-spacing: 4px;
-    margin: 100px auto;
-    position: relative;
-    text-transform: uppercase;
+  font-family: sans-serif;
+  font-size: 34px;
+  letter-spacing: 4px;
+  margin: 100px auto;
+  position: relative;
+  text-transform: uppercase;
 }
 
 #text {
-    color: white;
-    white-space: pre;
+  color: white;
+  white-space: pre;
 }
 
 #progress {
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #ffa500;
-    overflow: hidden;
-    white-space: pre;
-    width: 0;
-    animation-timing-function: linear;
-    /*text-shadow: 0 0 3px rgba(255,255,255,1);*/
-    animation-fill-mode: forwards;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ffa500;
+  overflow: hidden;
+  white-space: pre;
+  width: 0;
+  animation-timing-function: linear;
+  /*text-shadow: 0 0 3px rgba(255,255,255,1);*/
+  animation-fill-mode: forwards;
 }
 
 @keyframes run-text {
-    from { width: 0 }
-    to { width: 100% }
+  from {
+    width: 0
+  }
+  to {
+    width: 100%
+  }
 }
