@@ -17,7 +17,7 @@ body {
 }
 
 .playerContainer {
-  height: calc(100% - 239px);
+  height: calc(100% - 255px);
   position: relative;
 }
 
